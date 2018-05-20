@@ -3,9 +3,29 @@
 {% block title %} SymphArt Articles {% endblock %}
 
 {% block body %}
-    <div class="container">
-        {% if articles %}
-        {%  %}
-    </div>
+    {% if articles %}
+        <div class="p-4">
+            <table class="table table-striped px-4">
+                <thead>
+                <tr>
+                    <th>Article Title</th>
+                    <th>Actions</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for article in articles %}
+                    <tr>
+                        <td>{{ article.title }}</td>
+                        <td>
+                            <a href="/article/{{ article.id }}" class="btn btn-dark">Show</a>
+                        </td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    {% else %}
+        <p>No articles to display</p>
+    {% endif %}
 
 {% endblock %}
